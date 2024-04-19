@@ -1,11 +1,12 @@
 import React from 'react';
 import home from './pages/home.js'
-import characterselection from './pages/characterselection';
+import SelectionWindow from './components/SelectionWindow.js';
+import CharacterSection from './components/CharacterSection.js';
 
 function App() {
   return (
     <div>
-      <CharacterSelection/>
+      <CharacterSection/>
     </div>
   );
 }

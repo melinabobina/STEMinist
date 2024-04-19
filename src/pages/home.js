@@ -1,6 +1,5 @@
 import React from 'react';
-import CharacterSelection from '../components/CharacterSelection'
-  
+
 function home() {
   return (
     <div>

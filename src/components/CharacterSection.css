@@ -1,0 +1,6 @@
+.selection-container {
+    width: 75%;
+    height: 600px;
+    border-style: solid;
+    display: flex;
+}
