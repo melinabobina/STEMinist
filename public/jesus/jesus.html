@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title> CSS project </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <id> </id>
+    <audio id="audioPlayer">
+        <source src="images/pizza.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="center-container">
+        <div id="overlay" class="overlay" onclick="off()">
+            <div id="ovTxt" class="ovTxt"></div>
+            <div id="guess" class="ovTxt"></div>
+            <div id="total" class="ovTxt"></div>
+        </div>
+        <div id="FAIL" class="overlay" onclick="off()">
+            <div id="ovTxt" class="ovTxt"> INCOMPLETE CIRCUIT</div>
+            <div id="ovTxt" class="ovTxt"> CLICK TO TRY AGAIN</div>
+        </div>
+        <h1 class="counter"> Circuits </h1>
+        <div class="square">
+            <div class="grid-container">
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"> </div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"> </div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+                <div class="grid-item" onclick="swapItems(this)"> <img src="images/Hm.png" class="image"></div>
+            </div>
+        </div>
+        <button class="balls" id="balls">SUBMIT</button>
+        <div class="lore"> <br> Instructions: <br> Click on any ? tile to reveal a circuit piece. <br> Click on 2
+            circuit pieces to swap their places.
+            <br> Make a path from start to end with these pieces; then click submit :>
+        </div>
+    </div>
+    <script src="stuff.js"> </script>
+    <script class="html">
+        // Define the changeImage function
+        function changeImage(element) {
+            console.log(element.src);
+            if ((element.src.endsWith("images/Hm.png"))) {
+                startTimer();
+                // Get the current image source
+                const currentSource = element.parentElement.dataset.source;
+                element.src = currentSource;
+                // Remove the existing click listener
+                element.removeEventListener('click', changeImage);
+            }
+        }
+
+        // Get all grid items
+        const gridItems = document.querySelectorAll('.image');
+
+        // Loop through each grid item
+        gridItems.forEach(function (item) {
+            // Add click event listener to each grid item
+            item.addEventListener('click', function () {
+                // Call the changeImage function when a grid item is clicked
+                changeImage(item);
+            }, {once: true}); // Add { once: true } to remove the listener after it's called once
+        });
+
+
+        const images = document.querySelectorAll('.image');
+        const imageSources = ['images/straightPipe.png', 'images/bentPipe.png']; // Update with your image URLs
+
+        // Swap items functionality
+        let firstClickedItem = null; // Variable to store the first clicked item
+        function swapItems(element) {
+            console.log(element.dataset.clicked);
+            console.log(element.querySelector('.image').src);
+            if (!firstClickedItem && element.dataset.clicked == "true" && (element.querySelector('.image').src.endsWith("images/straightPipe.png") || element.querySelector('.image').src.endsWith("images/bentPipe.png"))) {
+                firstClickedItem = element;
+                firstClickedItem.classList.add('selected');
+            } else if (firstClickedItem && element.dataset.clicked == "true" && (element.querySelector('.image').src.endsWith("images/straightPipe.png") || element.querySelector('.image').src.endsWith("images/bentPipe.png"))) {
+                // Swap src attributes
+                const firstSrc = firstClickedItem.querySelector('.image').src;
+                const secondSrc = element.querySelector('.image').src;
+                firstClickedItem.querySelector('.image').src = secondSrc;
+                element.querySelector('.image').src = firstSrc;
+
+                // Swap rotation angles
+                const firstRotation = firstClickedItem.querySelector('.image').style.transform;
+                const secondRotation = element.querySelector('.image').style.transform;
+                firstClickedItem.querySelector('.image').style.transform = secondRotation;
+                element.querySelector('.image').style.transform = firstRotation;
+
+                // Swap incomingDir attributes
+                const firstIncoming1 = firstClickedItem.dataset.incoming;
+                const secondIncoming1 = element.dataset.incoming;
+                firstClickedItem.dataset.incoming = secondIncoming1;
+                element.dataset.incoming = firstIncoming1;
+
+                // Swap incomingDir2
+                const firstIncoming2 = firstClickedItem.dataset.incoming2;
+                const secondIncoming2 = element.dataset.incoming2;
+                firstClickedItem.dataset.incoming2 = secondIncoming2;
+                element.dataset.incoming2 = firstIncoming2;
+
+                firstClickedItem.classList.remove('selected');
+                firstClickedItem = null;
+            } else {
+                element.dataset.clicked = "true";
+            }
+        }
+        const counterElement = document.querySelector('.counter');
+
+        let timer;
+        let timeTracker;
+        let seconds = 0;
+        let milliseconds = 0;
+
+        function updateCounter() {
+            milliseconds++;
+            if (milliseconds === 100) {
+                seconds++;
+                milliseconds = 0;
+            }
+            counterElement.textContent = `${seconds}:${(milliseconds / 10).toFixed(1)}`;
+            timeTracker = seconds + milliseconds / 100; // Convert milliseconds to seconds
+        }
+
+        function startTimer() {
+            clearInterval(timer);
+            timer = setInterval(updateCounter, 10); // Update every 10 milliseconds
+        }
+
+
+        function checkCompatibility() {
+
+            // Get the start tile based on its outgoing direction
+            const startTile = document.querySelector('.grid-item img[src="images/pipeStart.png"]');
+            if (!startTile) {
+                console.log('No start tile found.');
+                return;
+            }
+            startTile.src = "images/start.gif";
+
+            // Get the outgoing direction of the start tile
+            const startOutgoing = startTile.parentElement.dataset.outgoing;
+            console.log(startOutgoing + " is the ourgoing direction of tile at start")
+
+            if (!startOutgoing) {
+                console.log('Outgoing direction not specified for start tile.');
+                return;
+            }
+
+            // Get the index of the start tile
+            const startIndex = Array.from(startTile.parentElement.parentNode.children).indexOf(startTile.parentElement);
+
+            // Calculate the index of the adjacent tile based on the outgoing direction
+            let adjacentIndex;
+            switch (startOutgoing) {
+                case 'up':
+                    adjacentIndex = startIndex - 5; // Adjust according to your grid structure
+                    break;
+                case 'right':
+                    adjacentIndex = startIndex + 1; // Adjust according to your grid structure
+                    break;
+                case 'down':
+                    adjacentIndex = startIndex + 5; // Adjust according to your grid structure
+                    break;
+                case 'left':
+                    adjacentIndex = startIndex - 1; // Adjust according to your grid structure
+                    break;
+                default:
+                    console.log('Invalid outgoing direction for start tile.');
+                    return;
+            }
+
+            // Get the grid element in the direction corresponding to the outgoing direction of the start tile
+            const adjacentTile = document.querySelector(`.grid-container > div:nth-child(${adjacentIndex + 1})`);
+            if (!adjacentTile) {
+                console.log('No adjacent tile found.');
+                gameOver();
+                return;
+            }
+
+            // Get the incoming direction of the adjacent tile
+            const incomingDirection = adjacentTile.dataset.incoming;
+            const incomingDirection2 = adjacentTile.dataset.incoming2;
+
+            console.log("Neighbor at " + adjacentIndex + " neightbors tile takes " + incomingDirection + " and " + incomingDirection2);
+            if (!incomingDirection) {
+                console.log('Incoming direction not specified for adjacent tile.');
+                return;
+            }
+
+
+            // Check compatibility
+            setTimeout(function () {
+                console.log(oppositeDirection(startOutgoing) + " is what the start should check")
+                const adImg = adjacentTile.querySelector('img');
+                if (incomingDirection == oppositeDirection(startOutgoing)) {
+                    adjacentTile.dataset.outgoing = incomingDirection2;
+                    if (adjacentTile.querySelector('img').src.endsWith("images/straightPipe.png")) {
+                        console.log("BALLLLS " + adImg.src, "IMAGE ROTATION: " + adImg.style.transform, "VS: " + startTile.style.transform);
+                        adImg.src = "images/straight.gif"
+                    }
+                    else if (adjacentTile.querySelector('img').src.endsWith("images/bentPipe.png")) {
+                        console.log("BALLLLS " + adImg.src, "IMAGE ROTATION: " + adImg.style.transform, "VS: " + startTile.style.transform)
+                        adImg.src = "images/bent.gif"
+                    }
+                    fixGif(adImg, startTile, startOutgoing);
+                    console.log("HERE BEFORE: " + startOutgoing);
+                    checkAll(adjacentTile, adjacentIndex);
+                }
+                else if (incomingDirection2 == oppositeDirection(startOutgoing)) {
+                    console.log('Compatible tiles.');
+                    adjacentTile.dataset.outgoing = incomingDirection;
+                    if (adjacentTile.querySelector('img').src.endsWith("images/straightPipe.png")) {
+                        console.log("BALLLLS " + adImg.src, "IMAGE ROTATION: " + adImg.style.transform, "VS: " + startTile.style.transform);
+                        adImg.src = "images/straight.gif"
+                    }
+                    else if (adjacentTile.querySelector('img').src.endsWith("images/bentPipe.png")) {
+                        console.log("BALLLLS " + adImg.src, "IMAGE ROTATION: " + adImg.style.transform, "VS: " + startTile.style.transform)
+                        adImg.src = "images/bent.gif"
+                    }
+                    console.log("HERE BEFORE: " + startOutgoing);
+                    fixGif(adImg, startTile, startOutgoing);
+                    checkAll(adjacentTile, adjacentIndex);
+                } else {
+                    console.log('Tiles are not compatible.' + " YOU FAILED");
+                    gameOver();
+                }
+            }, 350);
+        }
+
+        function oppositeDirection(direction) {
+            switch (direction) {
+                case 'up':
+                    return 'down';
+                case 'right':
+                    return 'left';
+                case 'down':
+                    return 'up';
+                case 'left':
+                    return 'right';
+                default:
+                    console.log('Invalid direction.');
+                    return null;
+            }
+
+        }
+
+        function checkAll(curTile, index) {
+            const endTile = document.querySelector('.grid-item img[src="images/pipeEnd.png"]');
+            const endInd = Array.from(endTile.parentElement.parentNode.children).indexOf(endTile.parentElement);
+            console.log("ENDS AT " + endInd);
+
+            if (index != endInd) {
+                const Outgoing = curTile.dataset.outgoing;
+                console.log(Outgoing + " is the ourgoing direction of tile at " + index)
+                // Calculate the index of the adjacent tile based on the outgoing direction
+                let adjacentIndex;
+                switch (Outgoing) {
+                    case 'up':
+                        adjacentIndex = index - 5; // Adjust according to your grid structure
+                        break;
+                    case 'right':
+                        adjacentIndex = index + 1; // Adjust according to your grid structure
+                        break;
+                    case 'down':
+                        adjacentIndex = index + 5; // Adjust according to your grid structure
+                        break;
+                    case 'left':
+                        adjacentIndex = index - 1; // Adjust according to your grid structure
+                        break;
+                    default:
+                        console.log('Invalid outgoing direction for current tile.');
+                        return;
+                }
+
+                // Get the grid element in the direction corresponding to the outgoing direction of the start tile
+                const adjacentTile = document.querySelector(`.grid-container > div:nth-child(${adjacentIndex + 1})`);
+                if (!adjacentTile) {
+                    console.log('No adjacent tile found.');
+                    gameOver();
+                    return;
+                }
+
+                // Get the incoming direction of the adjacent tile
+                const incomingDirection = adjacentTile.dataset.incoming;
+                const incomingDirection2 = adjacentTile.dataset.incoming2;
+
+                if (!incomingDirection) {
+                    console.log('Incoming direction not specified for adjacent tile.');
+                    return;
+                }
+
+                // Check compatibility and update adjacent
+                setTimeout(function () {
+                    console.log(oppositeDirection(Outgoing) + " is what the start should check")
+                    const adImg = adjacentTile.querySelector('img');
+                    if (incomingDirection == oppositeDirection(Outgoing)) {
+                        adjacentTile.dataset.outgoing = incomingDirection2;
+                        if (adjacentTile.querySelector('img').src.endsWith("images/straightPipe.png")) {
+                            console.log("BALLLLS " + adImg.src, "IMAGE ROTATION: " + adImg.style.transform, "VS: " + curTile.style.transform);
+                            adImg.src = "images/straight.gif"
+                        }
+                        else if (adjacentTile.querySelector('img').src.endsWith("images/bentPipe.png")) {
+                            console.log("BALLLLS " + adImg.src, "IMAGE ROTATION: " + adImg.style.transform, "VS: " + curTile.style.transform)
+                            adImg.src = "images/bent.gif"
+                        }
+                        fixGif(adImg, curTile, Outgoing);
+                        console.log("HERE BEFORE: " + Outgoing);
+
+                    }
+                    else if (incomingDirection2 == oppositeDirection(Outgoing)) {
+                        console.log('Compatible tiles.');
+                        adjacentTile.dataset.outgoing = incomingDirection;
+                        if (adjacentTile.querySelector('img').src.endsWith("images/straightPipe.png")) {
+                            console.log("BALLLLS " + adImg.src, "IMAGE ROTATION: " + adImg.style.transform, "VS: " + curTile.style.transform);
+                            adImg.src = "images/straight.gif"
+                        }
+                        else if (adjacentTile.querySelector('img').src.endsWith("images/bentPipe.png")) {
+                            console.log("BALLLLS " + adImg.src, "IMAGE ROTATION: " + adImg.style.transform, "VS: " + curTile.style.transform)
+                            adImg.src = "images/bent.gif"
+                        }
+                        console.log("HERE BEFORE: " + Outgoing);
+                        fixGif(adImg, curTile, Outgoing);
+
+                    } else {
+                        console.log('Tiles are not compatible.');
+                        gameOver();
+                        stopTimer();
+                    }
+                    checkAll(adjacentTile, adjacentIndex);
+                }, 850);
+            }
+            if (index == endInd) {
+                console.log("DONE");
+                stopTimer();
+                on();
+            }
+        }
+
+        // Get the button element
+        const button = document.getElementById('balls');
+
+        // Add event listener for button click
+        button.addEventListener('click', checkCompatibility);
+
+        const audio = document.getElementById('audioPlayer');
+
+        function savePosition() {
+            localStorage.setItem("Balls", Math.random(0, 10))
+            localStorage.setItem('audioPosition', audio.currentTime);
+        }
+
+
+        function stopTimer() {
+            clearInterval(timer);
+        }
+
+        function on() {
+            document.getElementById("overlay").style.display = "flex";
+            score();
+        }
+
+        function gameOver() {
+            document.getElementById("FAIL").style.display = "flex";
+
+        }
+
+        function off() {
+            savePosition();
+            location.reload();
+        }
+
+
+        function score() {
+            let time = document.getElementById('ovTxt'); //calcs the time bonus
+            timeScore = Math.floor((60 - (seconds + milliseconds / 10)) * 1.67);
+            console.log("MS: " + milliseconds, "S: " + seconds);
+            time.textContent = "TIME BONUS: " + timeScore;
+
+            let guesser = document.getElementById('guess');
+
+            const gridItems = document.querySelectorAll('.grid-item');
+            let count = 0;
+            gridItems.forEach(function (item) {
+                const imageElement = item.querySelector('.image');
+                console.log(imageElement.src);
+                if (imageElement.src.endsWith("images/Hm.png")) {
+                    count++; // Increment the counter if the src matches
+                }
+            });
+
+            guesser.textContent = "TILE BONUS: " + count * 2; //tile scores based on tiles left
+            let total = document.getElementById('total')
+            total.textContent = "TOTAL SCORE: " + (timeScore + count * 2);
+
+            if (localStorage.length = 0) {
+                localStorage.setItem('score1', JSON.stringify(timeScore + count * 2));
+                console.log(JSON.parse(localStorage.getItem('score1')) || []);
+            }
+            else {
+                console.log("Mm");
+                if (isHighScore(timeScore + count * 2)) {
+                    console.log("NEW HIGH SCORE!")
+                }
+            }
+        }
+
+        function isHighScore(currentScore) {
+            for (let i = 1; i <= 5; i++) {
+                const key = "score" + i;
+                const storedScore = parseInt(localStorage.getItem(key));
+                if (!isNaN(storedScore) && currentScore > storedScore) {
+                    localStorage.setItem(key, JSON.stringify(currentScore))
+                    return true; // Current score beats at least one of the top 10 scores
+                }
+            }
+            return false; // Current score does not beat any of the top 10 scores
+        }
+
+        function fixGif(nextImg, curImg, curOutgoing) {
+            //console.log("This is what's being checked rn "+ nextImg.style.transform);
+            if (nextImg.src.endsWith("images/straight.gif")) {
+                switch (curOutgoing) {
+                    case 'up':
+                        console.log("FIX THE GIF TO ALIGN WITH UP");
+                        nextImg.style.transform = "rotate(270deg)";
+                        break;
+                    case 'down':
+                        console.log("FIX THE GIF TO ALIGN WITH DOWN");
+                        nextImg.style.transform = "rotate(90deg)";
+                        break;
+                    case 'right':
+                        console.log("FIX THE GIF TO ALIGN WITH RIGHT");
+                        nextImg.style.transform = "rotate(0deg)";
+                        break;
+                    case 'left':
+                        console.log("FIX THE GIF TO ALIGN WITH LEFT");
+                        nextImg.style.transform = "rotate(180deg)";
+                        break;
+                    default:
+                        console.log('ballsack.');
+                        return;
+                }
+            }
+            else if (nextImg.src.endsWith("images/bent.gif")) { //next one is a bent
+                switch (curOutgoing) {
+                    case 'up':
+                        console.log("FIX THE BENDY TO ALIGN WITH UP");
+                        if (nextImg.style.transform == "rotate(90deg)") {
+                            nextImg.style.transform = "rotate(180deg) scaleX(-1)";
+
+
+                        } else if (nextImg.style.transform == "rotate(180deg)") {
+                            nextImg.style.transform = "rotate(180deg)";
+                        }
+                        break;
+                    case 'down':
+                        console.log("FIX THE BENDY TO ALIGN WITH DOWN");
+                        if (nextImg.style.transform == "rotate(0deg)") {
+                            nextImg.style.transform = "rotate(0deg)";
+                        } else if (nextImg.style.transform == "rotate(270deg)") {
+                            nextImg.style.transform = "rotate(0deg) scaleX(-1)";
+                        }
+                        break;
+                    case 'right':
+                        console.log("FIX THE BENDY TO ALIGN WITH RIGHT");
+                        if (nextImg.style.transform == "rotate(180deg)") {
+                            nextImg.style.transform = "rotate(270deg) scaleX(-1)";
+                        } else if (nextImg.style.transform == "rotate(270deg)") {
+                            nextImg.style.transform = "rotate(270deg)";
+                        }
+                        break;
+                    case 'left':
+                        if (nextImg.style.transform == "rotate(0deg)") {
+                            nextImg.style.transform = "rotate(90deg) scaleX(-1)";
+                        } else if (nextImg.style.transform == "rotate(90deg)") {
+                            nextImg.style.transform = "rotate(90deg)";
+                        }
+                        console.log("FIX THE BENDY TO ALIGN WITH LEFT");
+                        break;
+                    default:
+                        console.log('ballsack.');
+                        return;
+                }
+            }
+
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const audioPlayer = document.getElementById('audioPlayer');
+
+            // Add a click event listener to the document body
+            document.body.addEventListener('click', function () {
+                // Trigger the audio playback
+                audioPlayer.play();
+
+                // Remove the event listener to prevent multiple plays
+                document.body.removeEventListener('click', arguments.callee);
+            });
+        });
+
+        // Function to resume playback from the saved position
+        function resumePlayback() {
+            // Check if there is a saved position in localStorage
+            if (localStorage.getItem('audioPosition')) {
+                // Get the saved position from localStorage
+                const savedPosition = parseFloat(localStorage.getItem('audioPosition'));
+
+                // Set the current time of the audio element to the saved position
+                audio.currentTime = savedPosition;
+
+                // Play the audio
+                audio.play();
+                console.log("KEEP THE GROOVE GOIN");
+            }
+        }
+
+        // Call the resumePlayback function when the page loads to resume playback
+        window.addEventListener('load', resumePlayback);
+
+
+
+    </script>
+    </div>
+</body>
+
+</html>

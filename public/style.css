@@ -1,0 +1,450 @@
+@font-face { 
+  font-family: myFont; 
+  src: url('Winkle-Regular.ttf'); 
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+ body {
+   background-color: #A68FC5; 
+   font-family: myFont; 
+ }
+/* external css: flickity.css */
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+ .gallery {
+  background:  #A68FC5;
+}
+
+/*88888888888888  ADA LOVELACE  8888888888888888*/
+
+.gallery-cell-1:before {
+  display: block;
+  margin-left: 55px;
+  font-family: "Courier New";
+  content: 'ADA LOVELACE';
+  line-height: 200px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #FF007F /*barbie pink*/
+} 
+
+.gallery-cell-1 {
+  width: 66%;
+  height: 600px;
+  margin-right: 10px;
+  background-image:url("indiv-pagee.jpg");
+  background-size: cover;
+  
+}
+.gallery-cell-1:after {
+  display: block;
+  margin-left: 475px;
+  margin-top: -505px;
+  font-family: "Courier New", monospace;
+  content: ' ';
+  line-height: 200px;
+  font-size: 30px;
+  font-weight: bold; 
+  color: black /*barbie pink*/
+}
+
+.gallery-cell-1 >img {
+  display: block;
+  margin-left: 55px;
+  margin-top: -72px;
+  width: 40%;
+  border: 3px solid black;
+}
+
+.ada_button {
+  margin: 10px 0px 4px 122px;
+  background-color:  #FF007F;
+  border: 3px solid #FFBCE5;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.gallery-cell-1 >ul{
+  list-style-type: "✶ ";
+  display: block;
+  margin-left: 425px;
+  margin-top: -390px;
+  width: 45%;
+  border: 3px solid black;
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  color:#EEEEB0;
+  background-color: #78ACE8 ;
+  font-weight: bold; 
+}
+.gallery-cell-1 >p{
+  display: block;
+  background-color:  #FFBCE5 ;
+  margin-left: 425px;
+  margin-top: -6px;
+  width: 45%;
+  border: 3px solid black;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  padding: 18px 8px 18px 8px;
+}
+/*88888888888888  ANNIE EASLEY  8888888888888888*/
+.gallery-cell-2 {
+  width: 66%;
+  height: 600px;
+  margin-right: 10px;
+  background-image:url("indiv-pagee.jpg");
+  background-size: cover;
+
+}
+.gallery-cell-2:before {
+  display: block;
+  margin-left: 55px;
+  font-family: "Courier New", monospace;
+  content: '                  ANNIE EASLEY       ';
+  line-height: 200px;
+  font-size: 32px;
+  font-weight: bold; 
+  color: #FF007F /*barbie pink*/
+} 
+
+.gallery-cell-2 >img {
+  display: block;
+  margin-left: 55px;
+  margin-top: -72px;
+  width: 40%;
+  border: 3px solid black;
+}
+.ann_button {
+  margin: 10px 0px 4px 122px;
+  background-color:  #FF007F;
+  border: 3px solid #FFBCE5;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+ .gallery-cell-2:after {
+   display: block;
+   margin-left: 475px;
+   margin-top: -270px;
+   font-family: "Courier New", monospace;
+   content: ' ';
+   line-height: 200px;
+   font-size: 30px;
+   font-weight: bold; 
+   color: black /*barbie pink*/
+ }
+.gallery-cell-2 >ul{
+  list-style-type: "✶ "; 
+  display: block;
+  margin-left: 425px;
+  margin-top: -390px;
+  width: 45%;
+  border: 3px solid black;
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  background-color:  #634382;
+  color: #DB9BF1 ;
+  font-weight: bold; 
+}
+.gallery-cell-2 >p{
+  display: block;
+  background-color:  #FFBCE5 ;
+  margin-left: 425px;
+  margin-top: -6px;
+  width: 45%;
+  border: 3px solid black;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  padding: 18px 8px 18px 8px;
+}
+/*88888888888888  MARGARET HAMILTON  8888888888888888*/
+
+.gallery-cell-3:before {
+  display: block;
+  margin-left: 55px;
+  font-family: "Courier New", monospace;
+  content: '                MARGARET HAMILTON     ';
+  line-height: 200px;
+  font-size: 32px;
+  font-weight: bold; 
+  color: #FF007F /*barbie pink*/
+} 
+.gallery-cell-3 {
+  width: 66%;
+  height: 600px;
+  margin-right: 10px;
+  background-image:url("indiv-pagee.jpg");
+  background-size: cover;
+
+}
+.gallery-cell-3:after {
+  display: block;
+  margin-left: 475px;
+  margin-top: -500px;
+  font-family: "Courier New", monospace;
+  content: ' ';
+  line-height: 200px;
+  font-size: 30px;
+  font-weight: bold; 
+  color: black /*barbie pink*/
+}
+
+.gallery-cell-3 >img {
+  display: block;
+  margin-left: 55px;
+  margin-top: -72px;
+  width: 40%;
+  border: 3px solid black;
+}
+.mag_button {
+  margin: 10px 0px 4px 122px;
+  background-color:  #FF007F;
+  border: 3px solid #FFBCE5;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.gallery-cell-3 >ul{
+  list-style-type: "✶ "; 
+  display: block;
+  margin-left: 425px;
+  margin-top: -420px;
+  width: 45%;
+  border: 3px solid black;
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  color:#EEEEB0 ;
+  background-color: #78ACE8 ;
+  font-weight: bold; 
+}
+.gallery-cell-3 >p{
+  display: block;
+  background-color:  #FFBCE5 ;
+  margin-left: 425px;
+  margin-top: -6px;
+  width: 45%;
+  border: 3px solid black;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  padding: 18px 8px 18px 8px;
+}
+
+/*88888888888888 GRACE HOPPER 8888888888888888*/
+
+.gallery-cell-4:before {
+  display: block;
+  margin-left: 55px;
+  font-family: "Courier New", monospace;
+  content: '                GRACE HOPPER      ';
+  line-height: 200px;
+  font-size: 32px;
+  font-weight: bold; 
+  color: #FF007F /*barbie pink*/
+}
+
+.gallery-cell-4 {
+  width: 66%;
+  height: 600px;
+  margin-right: 10px;
+  background-image:url("indiv-pagee.jpg");
+  background-size: cover;
+
+}
+
+.gallery-cell-4:after {
+  display: block;
+  margin-left: 475px;
+  margin-top: -500px;
+  font-family: "Courier New", monospace;
+  content: ' ';
+  line-height: 200px;
+  font-size: 30px;
+  font-weight: bold; 
+  color: black /*barbie pink*/
+}
+  
+.gallery-cell-4 >img {
+  display: block;
+  margin-left: 55px;
+  margin-top: -72px;
+  width: 40%;
+  border: 3px solid black;
+}
+.grace_button {
+  margin: 10px 0px 4px 122px;
+  background-color:  #FF007F;
+  border: 3px solid #FFBCE5;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.gallery-cell-4 >ul{
+  list-style-type: "✶ ";
+  display: block;
+  margin-left: 425px;
+  margin-top: -420px;
+  width: 45%;
+  border: 3px solid black;
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  background-color:  #DB9BF1 ;
+  color: #4f0962; 
+  font-weight: bold; 
+}
+.gallery-cell-4 >p{
+  display: block;
+  background-color:  #FFBCE5 ;
+  margin-left: 425px;
+  margin-top: -6px;
+  width: 45%;
+  border: 3px solid black;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  padding: 18px 8px 18px 8px;
+}
+/*88888888888888 LYNN CONWAY 8888888888888888*/
+
+.gallery-cell-5:before {
+  display: block;
+  margin-left: 55px;
+  font-family: "Courier New", monospace;
+  content: '                 LYNN CONWAY      ';
+  line-height: 200px;
+  font-size: 32px;
+  font-weight: bold; 
+  color: #FF007F /*barbie pink*/
+}
+
+.gallery-cell-5 {
+  width: 66%;
+  height: 600px;
+  margin-right: 10px;
+  background-image:url("indiv-pagee.jpg");
+  background-size: cover;
+
+}
+
+.gallery-cell-5:after {
+  display: block;
+  margin-left: 475px;
+  margin-top: -500px;
+  font-family: "Courier New", monospace;
+  content: '';
+  line-height: 200px;
+  font-size: 30px;
+  font-weight: bold; 
+  color: black /*barbie pink*/
+}
+  
+.gallery-cell-5 >img {
+  display: block;
+  margin-left: 55px;
+  margin-top: -72px;
+  width: 40%;
+  border: 3px solid black;
+}
+.lynn_button {
+  margin: 10px 0px 4px 122px;
+  background-color:  #FF007F;
+  border: 3px solid #FFBCE5;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.gallery-cell-5 >ul{
+  list-style-type: "✶ "; 
+  display: block;
+  margin-left: 425px;
+  margin-top: -420px;
+  width: 45%;
+  border: 3px solid black;
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  background-color:  #634382;
+  color: #DB9BF1 ;
+  font-weight: bold; 
+}
+.gallery-cell-5 >p{
+  display: block;
+  background-color:  #FFBCE5 ;
+  margin-left: 425px;
+  margin-top: -6px;
+  width: 45%;
+  border: 3px solid black;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  padding: 18px 8px 18px 8px;
+}
+/*888888888888888888888888888888888888888888888888*/
+.page h1{
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #FB95D4;
+}
+
+.game{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  background-color: #f745a4;
+  border-radius: 5px;
+}
+
+
+.footer {
+  display: flex;
+  padding: 10px;
+}
+
+.footer > button{
+  border: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.footer > span {
+  flex: 1;
+  text-align: center;
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+  margin: 10px;
+}
