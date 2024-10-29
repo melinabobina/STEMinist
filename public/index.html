@@ -1,37 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <title>Choose Player Page</title>
+  <link rel = "stylesheet" type = "text/css" href = "style.css">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+</head>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>STEMinists</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  
+<body>
+  <!-- Flickity HTML init -->
+  <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true}'>
+    <!-- ------------------------------------------------------ -->
+    <div class="gallery-cell-1">
+      <img src= "AdaLovelaceVF.jpg" />
+      <a href="angie/angie.html"><button class="ada_button">Play Game</button> </a>
+      <ul>
+        <li>enchantress of numbers</li>
+        <li>the first programmer</li>
+        <li>mathmetician and writer</li>
+      </ul>
+      <p>
+        Ada Lovelace, known as the "Enchantress of Numbers," was a pioneer in computing. Born on December 10, 1815, in London, she was the daughter of poet Lord Byron and Annabella Milbanke. Encouraged by her mother, Lovelace developed a passion for mathematics and science. Her collaboration with Charles Babbage on his Analytical Engine led to her writing detailed notes that included the concept of an algorithm for the machine, which is now considered the first computer program. Though her contributions were largely overlooked during her lifetime, Lovelace gained recognition in the mid-20th century. Today, she inspires women in STEM, and her achievements are honored annually on Ada Lovelace Day.
+      </p>
+    </div>
+    <!-- ------------------------------------------------------ -->
+    <div class="gallery-cell-2">
+      <img src= "AnnieEasleyVF.jpg" /> 
+      <a href="oreo/oreo.html"><button class="ann_button">Play Game</button></a>
+      <ul>
+        <li>human computer</li>
+        <li>literal rocket scientist</li>
+        <li>comp sci baddie</li>
+      </ul>
+      <p>
+        Annie Easley was an American engineer and computer scientist. She was one of the first African Americans to work for NASA.
+        Born in Birmingham, Alabama, Easley began her 34-year career at NASA in 1955 as a computer scientist and mathematician. She was one of only four African American employees in her department and made significant contributions to nuclear-powered rocket systems. Easley embraced advancing technology, mastering programming languages such as Fortran and SOAP. She advocated for diversity in STEM and inspired countless women of color through her work. Easley passed away on June 25, 2011, leaving behind a lasting legacy.
+      </p>
+    </div>
+    <!-- ------------------------------------------------------ -->
+    <div class="gallery-cell-3">
+      <img src= "MargaretHamiltonVF.jpg" /> 
+      <a href="letzy/letzy.html"><button class="mag_button">Play Game</button></a>
+      <ul>
+        <li>coined the term software engineer</li>
+        <li>worked on Nasa Apollo Missions</li>
+        <li>MIT girly</li>
+      </ul>
+      <p>
+        Margaret Hamilton, an American computer scientist, systems engineer, and business owner, was director of the Software Engineering Division at MIT's Instrumentation Laboratory. There, she led the development of on-board flight software for NASA's Apollo program. She later founded two software companies, Higher Order Software and Hamilton Technologies.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+        Hamilton published over 130 papers and six major programs, and she coined the term "software engineering" to emphasize its role as part of the overall systems engineering process. On November 22, 2016, she received the Presidential Medal of Freedom from President Barack Obama for her pioneering work on Apollo Moon missions.
+      </p>
+    </div>
+    <!-- ------------------------------------------------------ -->
+    <div class="gallery-cell-4">
+      <img src= "GraceHopperVF.jpg" /> 
+      <a href="aneena/aneena.html"><button class="grace_button">Play Game</button></a>
+      <ul>
+        <li>pioneer of programming</li>
+        <li>naval officer</li>
+        <li>math god</li>
+      </ul>
+      <p>
+        Grace Hopper, known as “Amazing Grace” and the “First Lady of Software,” was a pioneering computer scientist. Graduating from Vassar College and Yale University, she joined WAVES during World War II, later becoming a senior mathematician on the UNIVAC (Universal Automatic Computer). Hopper developed the first compiler, A-0, which converted mathematical code into machine-readable instructions.
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+        Her work led to the creation of COBOL (Common Business Oriented Language), which she championed for use in both military and private sectors. Hopper advocated for machine language to be more accessible and for hardware-independent programs. She promoted distributed systems and inspired women to join the field of computing, leaving a lasting impact on technology and inclusion.
+      </p>
+      
+    </div>
+    <!-- ------------------------------------------------------ -->
+    <div class="gallery-cell-5">
+      <img src= "LynnConway.jpg" /> 
+      <a href="jesus/jesus.html"><button class="lynn_button">Play Game</button></a>
+      <ul>
+        <li>circuit queen</li>
+        <li>microchip inventor</li>
+        <li>electrical engineer baddie</li>
+      </ul>
+      <p>
+        Lynn Conway is a pioneering computer scientist and transgender activist. After earning degrees from Columbia University, she joined IBM's research division and developed the DIS technique for processors, enhancing efficiency and performance. Fired from IBM in 1968 after disclosing her plan to transition, Conway later significantly impacted microprocessor design and created the Mead-Conway microprocessor design model.
+
+        Her book "Introduction to VLSI Systems" became a standard in electronics engineering. In the early 2000s, she publicly embraced her transgender identity and became an advocate for the transgender community. Conway's work transformed the semiconductor industry and her activism supports the community, working toward greater acceptance of transgender individuals.
+      </p>
+    </div>
+
+  </div>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+</body>
 </html>
+
